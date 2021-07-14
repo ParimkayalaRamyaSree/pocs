@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured">
+    <com.adobe.cq.wcm.core.components.internal.DataLayerConfig
+        jcr:primaryType="nt:unstructured"
+        enabled="{Boolean}true"
+    />
+    <com.adobe.cq.wcm.core.components.internal.services.pdfviewer.PdfViewerCaConfig
+        jcr:primaryType="nt:unstructured"
+        clientId="91b4740ec56143a4862f7e42f30c9d37"
+        reportSuiteId=""/>
+</jcr:root>
