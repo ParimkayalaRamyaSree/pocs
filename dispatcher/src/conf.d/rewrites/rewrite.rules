@@ -16,3 +16,8 @@ RewriteCond %{REQUEST_URI} !^/content/dam/.*
 RewriteCond %{REQUEST_URI} !.*\..*$
 RewriteCond %{REQUEST_URI} !.*/$
 RewriteRule (.*)$ $1.html [PT,QSA]
+
+# Handle request with no extension and append html
+RewriteCond %{REQUEST_URI} ^/language-masters/.*
+RewriteCond %{REQUEST_URI} !^/content/dam/.*
+RewriteRule (.*)((?:/|^)[^./]+$) $1$2.html [NE,PT,L]
