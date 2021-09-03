@@ -5,21 +5,17 @@
 #
 
 $include "./default_filters.any"
+/0067 { /type "allow" /extension 'webmanifest' /path "/content/*/manifest" }
+/0068 { /type "allow" /extension 'json' /selectors 'model' /path "/content/*" }
 
-# Allow components JSON model
-/0101 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
-
-# Allow Quick Search
-/0102 { /type "allow" /extension "json" /selectors "searchresults" /path "/content/*" }
-
-# Allow j_security check for login
-/0103 { /type "allow" /method "POST" /url "/system/sling/login/j_security_check" }
-
-#Allow logout path
-/0104 { /type "allow" /method "POST" /url "/system/sling/logout" }
-
-# Allow GraphQL global endpoint & preflight requests
-# GraphQL also supports GET requests, if you intend to use GET include it in the rule below
-/0164 { /type "allow" /method '(POST|OPTIONS)' /url "/content/graphql/global/endpoint.json" /extension "json"}
+/0069 { /type "allow" /extension 'json' /path "/content/dam/wknd/data-hub/*" }
+/0065 { /type "deny" /extension 'html' /path "/content/wknd/*" }
+/0066 { /type "allow" /extension 'txt' /path "/content/dam/wknd/robots/robots" }
 
 
+#/0063 { /type "deny" /path "/content/wknd/*" /extension 'html'}
+/0063 { /type "allow" /method "GET" /url "/language-masters/*" /extension 'html'}
+
+
+#/0070 { /type "allow" /method "GET" /url "/language-masters/*"}
+/0064 { /type "allow" /method "GET" /url "/us/*" /extension 'html'}

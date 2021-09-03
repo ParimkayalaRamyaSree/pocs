@@ -8,16 +8,34 @@
 Include conf.d/rewrites/default_rewrite.rules
 
 # remove any trailing slash, if it's there.
-RewriteRule ^/?(.+)/$ /$1 [R]
+#RewriteRule ^(.+)/$ $1 [NE,PT,L]
+RewriteRule ^/?(.+)/$ /$1 [NE,PT]
+
+#RewriteRule ^/?$ /language-masters/it.html [R,L]
 
 # Handle request with no slash and no extension and append html
 RewriteCond %{REQUEST_URI} ^/language-masters/.*
 RewriteCond %{REQUEST_URI} !^/content/dam/.*
-RewriteCond %{REQUEST_URI} !.*\..*$
-RewriteCond %{REQUEST_URI} !.*/$
-RewriteRule (.*)$ $1.html [PT,QSA]
-
-# Handle request with no extension and append html
-RewriteCond %{REQUEST_URI} ^/language-masters/.*
-RewriteCond %{REQUEST_URI} !^/content/dam/.*
 RewriteRule (.*)((?:/|^)[^./]+$) $1$2.html [NE,PT,L]
+
+
+RewriteCond %{REQUEST_URI} !^/apps
+RewriteCond %{REQUEST_URI} !^/bin
+RewriteCond %{REQUEST_URI} !^/content
+RewriteCond %{REQUEST_URI} !^/etc
+RewriteCond %{REQUEST_URI} !^/home
+RewriteCond %{REQUEST_URI} !^/libs
+RewriteCond %{REQUEST_URI} !^/saml_login
+RewriteCond %{REQUEST_URI} !^/system
+RewriteCond %{REQUEST_URI} !^/tmp
+RewriteCond %{REQUEST_URI} !^/var
+RewriteCond %{REQUEST_URI} (.jpe?g|.png|.svg)$
+RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
+
+
+#RewriteCond %{REQUEST_URI} !.*\..*$
+#RewriteCond %{REQUEST_URI} !.*/$
+
+RewriteRule ^/robots.txt$ /content/dam/wknd/robots/robots.txt [NE,PT,L]
+
+#RewriteRule ^/sitemap.xml$ /content/exampleco/general/sitemap.xml [NC,PT]
