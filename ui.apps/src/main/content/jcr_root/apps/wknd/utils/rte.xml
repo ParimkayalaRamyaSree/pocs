@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Widget"
+    sling:resourceType="consumer-marketing/author-clientlibs/consumer-richtext/rte"
+    name="./text"
+    textIsRich="yes"
+    useFixedInlineToolbar="{Boolean}true">
+    <rtePlugins jcr:primaryType="nt:unstructured">
+        <format
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <justify
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <links
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <subsuperscript
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <edit
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <undo
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <styles
+            jcr:primaryType="nt:unstructured"
+            features="*">
+            <styles jcr:primaryType="nt:unstructured">
+                <brightRed
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-brightRed"
+                    text="Color - Bright Red"/>
+                <darkBlue
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-darkBlue"
+                    text="Color - Dark Blue"/>
+                <darkGray
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-coolGray100"
+                    text="Color - Dark Gray"/>
+                <lightGray
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-coolGray70"
+                    text="Color - Light Gray"/>
+                <regalRed
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-regalRed"
+                    text="Color - Regal Red"/>
+                <royalBlue
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-royalBlue"
+                    text="Color - Royal Blue"/>
+                <colorReverse
+                    jcr:primaryType="nt:unstructured"
+                    cssName="color-reverse"
+                    text="Color - White"/>
+                <adaInvisible
+                    jcr:primaryType="nt:unstructured"
+                    cssName="ada-invisible"
+                    text="ADA Invisible"/>
+                <borders
+                    jcr:primaryType="nt:unstructured"
+                    cssName="borders"
+                    text="Borders"/>
+                <emphasize
+                    jcr:primaryType="nt:unstructured"
+                    cssName="emphasize"
+                    text="Emphasize"/>
+                <fineprint
+                    jcr:primaryType="nt:unstructured"
+                    cssName="fineprint"
+                    text="Fine Print"/>
+                <horizontalLine
+                    jcr:primaryType="nt:unstructured"
+                    cssName="horizontal-line"
+                    text="Horizontal Line"/>
+                <nobr
+                    jcr:primaryType="nt:unstructured"
+                    cssName="nobr"
+                    text="Non Breaking Text"/>
+                <ornament
+                    jcr:primaryType="nt:unstructured"
+                    cssName="ornament"
+                    text="Ornament"/>
+                <subHeading
+                    jcr:primaryType="nt:unstructured"
+                    cssName="sub-heading"
+                    text="Sub Heading"/>
+            </styles>
+        </styles>
+        <lists
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <paraformat
+            jcr:primaryType="nt:unstructured"
+            features="*">
+            <formats jcr:primaryType="cq:WidgetCollection">
+                <hr
+                    jcr:primaryType="cq:WidgetCollection"
+                    description="Divider"
+                    tag="hr"/>
+                <h2
+                    jcr:primaryType="cq:WidgetCollection"
+                    description="H2"
+                    tag="h2"/>
+                <h3
+                    jcr:primaryType="cq:WidgetCollection"
+                    description="H3"
+                    tag="h3"/>
+                <h4
+                    jcr:primaryType="cq:WidgetCollection"
+                    description="H4"
+                    tag="h4"/>
+                <h5
+                    jcr:primaryType="cq:WidgetCollection"
+                    description="H5"
+                    tag="h5"/>
+                <h6
+                    jcr:primaryType="cq:WidgetCollection"
+                    description="H6"
+                    tag="h6"/>
+                <p
+                    jcr:primaryType="nt:unstructured"
+                    description="Paragraph"
+                    tag="p"/>
+            </formats>
+        </paraformat>
+        <misctools
+            jcr:primaryType="nt:unstructured"
+            features="*">
+            <specialCharsConfig jcr:primaryType="nt:unstructured">
+                <chars jcr:primaryType="nt:unstructured">
+                    <copyright
+                        jcr:primaryType="nt:unstructured"
+                        entity="&amp;copy;"/>
+                    <trademark
+                        jcr:primaryType="nt:unstructured"
+                        entity="&amp;trade;"/>
+                    <registered
+                        jcr:primaryType="nt:unstructured"
+                        entity="&amp;reg;"/>
+                </chars>
+            </specialCharsConfig>
+        </misctools>
+    </rtePlugins>
+    <uiSettings jcr:primaryType="nt:unstructured">
+        <cui jcr:primaryType="nt:unstructured">
+            <inline
+                jcr:primaryType="nt:unstructured"
+                toolbar="[#format,-,#paraformat,-,#styles,-,#justify,-,#lists,-,links#modifylink,links#unlink,links#anchor,-,subsuperscript#superscript,subsuperscript#subscript,-,edit#cut,edit#copy,edit#paste-plaintext,edit#paste-default,edit#paste-wordhtml,-,undo#undo,undo#redo,-,findreplace#find,findreplace#replace,-,spellcheck#checktext,-,misctools#specialchars,misctools#sourceedit,-,table#createoredit]">
+                <popovers jcr:primaryType="nt:unstructured">
+                    <format
+                        jcr:primaryType="nt:unstructured"
+                        items="[format#bold,format#italic,format#underline]"
+                        ref="format"/>
+                    <justify
+                        jcr:primaryType="nt:unstructured"
+                        items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+                        ref="justify"/>
+                    <styles
+                        jcr:primaryType="nt:unstructured"
+                        items="styles:getStyles:styles-pulldown"
+                        ref="styles"/>
+                    <lists
+                        jcr:primaryType="nt:unstructured"
+                        items="[lists#unordered,lists#ordered]"
+                        ref="lists"/>
+                    <paraformat
+                        jcr:primaryType="nt:unstructured"
+                        items="paraformat:getFormats:paraformat-pulldown"
+                        ref="paraformat"/>
+                </popovers>
+            </inline>
+            <dialogFullScreen
+                jcr:primaryType="nt:unstructured"
+                toolbar="[#format,-,#paraformat,-,#styles,-,#justify,-,#lists,-,links#modifylink,links#unlink,links#anchor,-,subsuperscript#superscript,subsuperscript#subscript,-,edit#cut,edit#copy,edit#paste-plaintext,edit#paste-default,edit#paste-wordhtml,-,undo#undo,undo#redo,-,findreplace#find,findreplace#replace,-,spellcheck#checktext,-,misctools#specialchars,misctools#sourceedit,-,table#createoredit]">
+                <popovers jcr:primaryType="nt:unstructured">
+                    <format
+                        jcr:primaryType="nt:unstructured"
+                        items="[format#bold,format#italic,format#underline]"
+                        ref="format"/>
+                    <justify
+                        jcr:primaryType="nt:unstructured"
+                        items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+                        ref="justify"/>
+                    <styles
+                        jcr:primaryType="nt:unstructured"
+                        items="styles:getStyles:styles-pulldown"
+                        ref="styles"/>
+                    <lists
+                        jcr:primaryType="nt:unstructured"
+                        items="[lists#unordered,lists#ordered]"
+                        ref="lists"/>
+                    <paraformat
+                        jcr:primaryType="nt:unstructured"
+                        items="paraformat:getFormats:paraformat-pulldown"
+                        ref="paraformat"/>
+                </popovers>
+            </dialogFullScreen>
+        </cui>
+    </uiSettings>
+</jcr:root>
