@@ -1,0 +1,55 @@
+public class LocalizationUtils {
+  private static final Logger LOGGER = LoggerFactory.getLogger(LocalizationUtils.class);
+  
+  @Nullable
+  public static String getLocalizationRoot(@NotNull Resource resource, @NotNull ResourceResolver resolver, @NotNull LanguageManager languageManager, @NotNull LiveRelationshipManager relationshipManager) {
+    String root = getLanguageRoot(resource, languageManager);
+    if (StringUtils.isEmpty(root))
+      root = getBlueprintPath(resource, relationshipManager); 
+    if (StringUtils.isEmpty(root))
+      root = getLiveCopyPath(resource, relationshipManager); 
+    return root;
+  }
+  
+  @Nullable
+  public static String getLanguageRoot(@NotNull Resource resource, @NotNull LanguageManager languageManager) {
+    return Optional.<Page>ofNullable(languageManager.getLanguageRoot(resource))
+      .map(Page::getPath)
+      .orElse(null);
+  }
+  
+  @Nullable
+  public static String getBlueprintPath(@NotNull Resource resource, @NotNull LiveRelationshipManager relationshipManager) {
+    try {
+      if (relationshipManager.isSource(resource)) {
+        RangeIterator liveCopiesIterator = relationshipManager.getLiveRelationships(resource, null, null);
+        if (liveCopiesIterator != null) {
+          LiveRelationship relationship = (LiveRelationship)liveCopiesIterator.next();
+          LiveCopy liveCopy = relationship.getLiveCopy();
+          if (liveCopy != null)
+            return liveCopy.getBlueprintPath(); 
+        } 
+      } 
+    } catch (WCMException e) {
+      LOGGER.error("Unable to get the blueprint: {}", e.getMessage());
+    } 
+    return null;
+  }
+  
+  @Nullable
+  public static String getLiveCopyPath(@NotNull Resource resource, @NotNull LiveRelationshipManager relationshipManager) {
+    try {
+      if (relationshipManager.hasLiveRelationship(resource)) {
+        LiveRelationship liveRelationship = relationshipManager.getLiveRelationship(resource, false);
+        if (liveRelationship != null) {
+          LiveCopy liveCopy = liveRelationship.getLiveCopy();
+          if (liveCopy != null)
+            return liveCopy.getPath(); 
+        } 
+      } 
+    } catch (WCMException e) {
+      LOGGER.error("Unable to get the live copy: {}", e.getMessage());
+    } 
+    return null;
+  }
+}
